@@ -16,7 +16,6 @@ Commencez par créer un projet SWIFT.
 Avant de poursuivre, installez des dépendances supplémentaires que vous utiliserez plus tard.
 
 - [Bibliothèque d’authentification Microsoft (MSAL) pour iOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc) pour l’authentification auprès d’Azure ad.
-- [Fournisseur d’authentification MSAL pour l’objectif C](https://github.com/microsoftgraph/msgraph-sdk-objc-auth) permettant de connecter MSAL avec le kit de développement logiciel (SDK) Microsoft Graph.
 - [Kit de développement logiciel (SDK) Microsoft Graph pour objective C](https://github.com/microsoftgraph/msgraph-sdk-objc) pour les appels à Microsoft Graph.
 - [Kit de développement logiciel (SDK) des modèles Microsoft Graph pour objective C](https://github.com/microsoftgraph/msgraph-sdk-objc-models) pour les objets fortement typés représentant des ressources Microsoft Graph, comme des utilisateurs ou des événements.
 
@@ -31,10 +30,9 @@ Avant de poursuivre, installez des dépendances supplémentaires que vous utilis
 1. Ouvrez le Podfile et ajoutez les lignes suivantes juste après la `use_frameworks!` ligne.
 
     ```Ruby
-    pod 'MSAL', '~> 0.3.0'
-    pod 'MSGraphMSALAuthProvider', '~> 0.1.1'
-    pod 'MSGraphClientSDK', ' ~> 0.1.3'
-    pod 'MSGraphClientModels', '~> 0.1.1'
+    pod 'MSAL', '~> 1.0.2'
+    pod 'MSGraphClientSDK', ' ~> 1.0.0'
+    pod 'MSGraphClientModels', '~> 1.3.0'
     ```
 
 1. Enregistrez le Podfile, puis exécutez la commande suivante pour installer les dépendances.
@@ -106,13 +104,13 @@ Dans cette section, vous allez créer les affichages de l’application : une p
 
     ![Capture d’écran du déplacement d’une segue manuelle vers le nouveau contrôleur de barre d’onglets dans Xcode](./images/add-segue.png)
 
-1. Sélectionnez le segue que vous venez d’ajouter, puis sélectionnez l' **inspecteur d’attributs**. Définissez le champ **identificateur** sur `userSignedIn`.
+1. Sélectionnez le segue que vous venez d’ajouter, puis sélectionnez l' **inspecteur d’attributs**. Définissez le champ **identificateur** sur `userSignedIn`et définissez la **Présentation** en **plein écran**.
 
     ![Capture d’écran du champ identifier dans l’inspecteur des attributs de Xcode](./images/set-segue-identifier.png)
 
 1. Sélectionnez la **scène de l’élément 1**, puis sélectionnez l' **inspecteur de connexions**.
 1. Sous **déclencheur SEGUES**, faites glisser le cercle non rempli en regard de **Manuel** sur le **contrôleur de vue de connexion** sur la table de montage séquentiel. Sélectionnez une **Présentation modale** dans le menu contextuel.
-1. Sélectionnez le segue que vous venez d’ajouter, puis sélectionnez l' **inspecteur d’attributs**. Définissez le champ **identificateur** sur `userSignedOut`.
+1. Sélectionnez le segue que vous venez d’ajouter, puis sélectionnez l' **inspecteur d’attributs**. Définissez le champ **identificateur** sur `userSignedOut`et définissez la **Présentation** en **plein écran**.
 
 ### <a name="create-welcome-page"></a>Créer une page d’accueil
 

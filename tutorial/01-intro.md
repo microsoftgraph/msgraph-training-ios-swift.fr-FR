@@ -13,7 +13,7 @@ Avant de commencer ce didacticiel, les éléments suivants doivent être install
 - [CocoaPods](https://cocoapods.org)
 
 > [!NOTE]
-> Ce didacticiel a été écrit à l’aide de Xcode version 10,3 et CocoaPods version 1.7.5. Les étapes de ce guide peuvent fonctionner avec d’autres versions, mais cela n’a pas été testé.
+> Ce didacticiel a été écrit à l’aide de Xcode version 11.2.1 et CocoaPods version 1.8.4 les étapes de ce guide peuvent fonctionner avec d’autres versions, mais cela n’a pas été testé.
 
 ## <a name="feedback"></a>Commentaires
 
