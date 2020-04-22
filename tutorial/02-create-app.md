@@ -30,7 +30,7 @@ Avant de poursuivre, installez des dépendances supplémentaires que vous utilis
 1. Ouvrez le Podfile et ajoutez les lignes suivantes juste après la `use_frameworks!` ligne.
 
     ```Ruby
-    pod 'MSAL', '~> 1.0.2'
+    pod 'MSAL', '~> 1.1.1'
     pod 'MSGraphClientSDK', ' ~> 1.0.0'
     pod 'MSGraphClientModels', '~> 1.3.0'
     ```
@@ -89,12 +89,14 @@ Dans cette section, vous allez créer les affichages de l’application : une p
 
     ![Une capture d’écran du champ title dans l’inspecteur des attributs de Xcode](./images/set-button-title.png)
 
+1. Lorsque le bouton est sélectionné, sélectionnez le bouton **Aligner** en bas de la table de montage séquentiel. Sélectionnez le **conteneur horizontalement dans le conteneur** et **verticalement dans** les contraintes du conteneur, conservez la valeur 0, puis sélectionnez **Ajouter 2 contraintes**.
+
+    ![Capture d’écran des paramètres de contraintes d’alignement dans Xcode](./images/add-alignment-constraints.png)
+
 1. Sélectionnez le **contrôleur d’affichage de connexion**, puis sélectionnez l' **inspecteur de connexions**.
 1. Sous **actions reçues**, faites glisser le cercle non rempli en regard de **connexion** sur le bouton. Sélectionnez **retoucher** dans le menu contextuel.
 
     ![Capture d’écran du déplacement de l’action de connexion vers le bouton dans Xcode](./images/connect-sign-in-button.png)
-
-1. Dans le menu **éditeur** , sélectionnez **résoudre les problèmes de disposition automatique**, puis sélectionnez **Ajouter les contraintes manquantes** sous **toutes les vues dans se connecter dans le contrôleur d’affichage**.
 
 ### <a name="create-tab-bar"></a>Créer une barre d’onglets
 
@@ -156,13 +158,6 @@ Dans cette section, vous allez créer les affichages de l’application : une p
     - Affichage d’une **image**
     - Deux **étiquettes**
     - Un **bouton**
-
-1. Sélectionnez la vue image, puis l' **inspecteur de taille**.
-1. Définissez la **largeur** et la **hauteur** sur 196.
-1. Sélectionnez la deuxième étiquette, puis l' **inspecteur d’attributs**.
-1. Modifiez la **couleur** en **gris foncé**et remplacez la **police** par le **système 12,0**.
-1. Sélectionnez le bouton, puis l' **inspecteur d’attributs**.
-1. Remplacez le **titre** par `Sign Out`.
 1. À l’aide de l' **inspecteur de connexions**, effectuez les connexions suivantes.
 
     - Liez la sortie **userDisplayName** à la première étiquette.
@@ -170,8 +165,40 @@ Dans cette section, vous allez créer les affichages de l’application : une p
     - Liez la sortie **userProfilePhoto** à la vue d’image.
     - Liez l’action **signOut** reçue au bouton **retoucher dans**.
 
+1. Sélectionnez la vue image, puis l' **inspecteur de taille**.
+1. Définissez la **largeur** et la **hauteur** sur 196.
+1. Utilisez le bouton **Aligner** pour ajouter la contrainte **de conteneur horizontalement dans le conteneur** avec une valeur de 0.
+1. Utilisez le bouton **ajouter de nouvelles contraintes** (en regard du bouton **Aligner** ) pour ajouter les contraintes suivantes :
+
+    - Aligner en haut sur : zone admissible, valeur : 0
+    - Espace inférieur à : nom d’affichage de l’utilisateur, valeur : standard
+    - Hauteur, valeur : 196
+    - Width, value : 196
+
+    ![Capture d’écran des nouveaux paramètres de contraintes dans Xcode](./images/add-new-constraints.png)
+
+1. Sélectionnez la première étiquette, puis utilisez le bouton **Aligner** pour ajouter la contrainte **horizontalement dans le conteneur** avec une valeur de 0.
+1. Utilisez le bouton **ajouter de nouvelles contraintes** pour ajouter les contraintes suivantes :
+
+    - Espace du haut vers : photo de profil utilisateur, valeur : standard
+    - Espace inférieur à : adresse de messagerie de l’utilisateur, valeur : standard
+
+1. Sélectionnez la deuxième étiquette, puis l' **inspecteur d’attributs**.
+1. Modifiez la **couleur** en **gris foncé**et remplacez la **police** par le **système 12,0**.
+1. Utilisez le bouton **Aligner** pour ajouter la contrainte **de conteneur horizontalement dans le conteneur** avec une valeur de 0.
+1. Utilisez le bouton **ajouter de nouvelles contraintes** pour ajouter les contraintes suivantes :
+
+    - Espace du haut à : nom complet de l’utilisateur, valeur : standard
+    - Espace inférieur vers : déconnexion, valeur : 14
+
+1. Sélectionnez le bouton, puis l' **inspecteur d’attributs**.
+1. Remplacez le **titre** par `Sign Out`.
+1. Utilisez le bouton **Aligner** pour ajouter la contrainte **de conteneur horizontalement dans le conteneur** avec une valeur de 0.
+1. Utilisez le bouton **ajouter de nouvelles contraintes** pour ajouter les contraintes suivantes :
+
+    - Espace disponible à : adresse de messagerie de l’utilisateur, valeur : 14
+
 1. Sélectionnez l’élément de la barre d’onglets au bas de la scène, puis sélectionnez l' **inspecteur des attributs**. Remplacez le **titre** par `Me`.
-1. Dans le menu **éditeur** , sélectionnez **résoudre les problèmes de disposition automatique**, puis sélectionnez **Ajouter les contraintes manquantes** sous **toutes les vues dans le contrôleur d’affichage de bienvenue**.
 
 La scène de bienvenue doit ressembler à ceci une fois que vous avez fini.
 
@@ -203,9 +230,9 @@ La scène de bienvenue doit ressembler à ceci une fois que vous avez fini.
 
 1. Ouvrez **main. Storyboard**. Sélectionnez la **scène de l’élément 2**, puis sélectionnez l' **inspecteur d’identité**. Remplacez la valeur de la **classe** par **CalendarViewController**.
 1. À l’aide de la **bibliothèque**, ajoutez un **affichage de texte** à la scène de l' **élément 2**.
-1. Sélectionnez l’affichage de texte que vous venez d’ajouter. Dans l' **éditeur**, cliquez sur **incorporer dans**, puis sur **affichage à défilement**.
+1. Sélectionnez l’affichage de texte que vous venez d’ajouter. Dans le menu **éditeur** , choisissez **incorporer dans**, puis appuyez sur la touche de **défilement**.
 1. À l’aide de l' **inspecteur de connexions**, connectez la sortie **calendarJSON** à l’affichage de texte.
-1. 1. Sélectionnez l’élément de la barre d’onglets au bas de la scène, puis sélectionnez l' **inspecteur des attributs**. Remplacez le **titre** par `Calendar`.
+1. Sélectionnez l’élément de la barre d’onglets au bas de la scène, puis sélectionnez l' **inspecteur des attributs**. Remplacez le **titre** par `Calendar`.
 1. Dans le menu **éditeur** , sélectionnez **résoudre les problèmes de disposition automatique**, puis sélectionnez **Ajouter les contraintes manquantes** sous **toutes les vues dans le contrôleur d’affichage de bienvenue**.
 
 La scène de calendrier doit ressembler à ceci une fois que vous avez fini.
@@ -217,39 +244,7 @@ La scène de calendrier doit ressembler à ceci une fois que vous avez fini.
 1. Créez un fichier de **classe Touch de cacao** dans le dossier **GraphTutorial** nommé `SpinnerViewController`. Choisissez **UIViewController** dans la sous- **classe du** champ.
 1. Ouvrez **SpinnerViewController. Swift** et remplacez son contenu par le code suivant.
 
-    ```Swift
-    import UIKit
-
-    class SpinnerViewController: UIViewController {
-
-        var spinner = UIActivityIndicatorView(style: .whiteLarge)
-
-        override func loadView() {
-            view = UIView()
-            view.backgroundColor = UIColor(white: 0, alpha: 0.7)
-
-            spinner.translatesAutoresizingMaskIntoConstraints = false
-            spinner.startAnimating()
-            view.addSubview(spinner)
-
-            spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        }
-
-        public func start(container: UIViewController) {
-            container.addChild(self)
-            self.view.frame = container.view.frame
-            container.view.addSubview(self.view)
-            self.didMove(toParent: container)
-        }
-
-        public func stop() {
-            self.willMove(toParent: nil)
-            self.view.removeFromSuperview()
-            self.removeFromParent()
-        }
-    }
-    ```
+    :::code language="swift" source="../demo/GraphTutorial/GraphTutorial/SpinnerViewController.swift" id="SpinnerSnippet":::
 
 ## <a name="test-the-app"></a>Tester l'application
 
